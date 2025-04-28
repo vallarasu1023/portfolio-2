@@ -1,0 +1,1100 @@
+/**
+* Template Name: iPortfolio
+* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+* Updated: Jun 29 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+    --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --heading-font: "Raleway",  sans-serif;
+    --nav-font: "Poppins",  sans-serif;
+  }
+  
+  /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+  :root { 
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #050d18; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #149ddd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  }
+  
+  /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+  :root {
+    --nav-color: #a8a9b4;  /* The default color of the main navmenu links */
+    --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color: #040b14; /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #040b14; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color: #a8a9b4; /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  }
+  
+  /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+  
+  .light-background {
+    --background-color: #f4fafd;
+    --surface-color: #ffffff;
+  }
+  
+  .dark-background {
+    --background-color: #040b14;
+    --default-color: #ffffff;
+    --heading-color: #ffffff;
+    --surface-color: #151f2b;
+    --contrast-color: #ffffff;
+  }
+  
+  /* Smooth scroll */
+  :root {
+    scroll-behavior: smooth;
+  }
+  h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+  /*--------------------------------------------------------------
+  # General Styling & Shared Classes
+  --------------------------------------------------------------*/
+  body {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    font-family: var(--default-font);
+  }
+  
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  a:hover {
+    color: color-mix(in srgb, var(--accent-color), transparent 25%);
+    text-decoration: none;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--heading-color);
+    font-family: var(--heading-font);
+  }
+  
+  
+  
+  /*--------------------------------------------------------------
+  # Global Header
+  --------------------------------------------------------------*/
+  .header {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0 15px;
+    width: 300px;
+    transition: all ease-in-out 0.3s;
+    overflow-y: auto;
+    z-index: 997;
+    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  }
+  
+  .header .profile-img img {
+    margin: 15px auto;
+    display: block;
+    width: 120px;
+    border: 8px solid color-mix(in srgb, var(--default-color), transparent 85%);
+  }
+  
+  .header .logo {
+    line-height: 1;
+    margin-bottom: 15px;
+  }
+  
+  .header .logo img {
+    max-height: 32px;
+    margin-right: 8px;
+  }
+  
+  .header .logo h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+    color: var(--heading-color);
+  }
+  
+  .header .social-links {
+    margin: 0 0 20px 0;
+  }
+  
+  .header .social-links a {
+    /* font-size: 19px; */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--default-color), transparent 90%);
+    color: var(--default-color);
+    margin: 0 2px;
+    border-radius: 50%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    transition: 0.3s;
+  }
+  
+  .header .social-links a:hover {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+  }
+  
+  @media (min-width: 1200px) {
+  
+    .header~main,
+    .header~#footer {
+      margin-left: 300px;
+    }
+  }
+  
+  @media (max-width: 1199px) {
+    .header {
+      left: -100%;
+    }
+  }
+  
+  .header.header-show {
+    left: 0;
+  }
+  /* header toggler */
+  /* Responsive header and navigation styles for mobile devices */
+
+.header .header-toggle {
+  color: var(--contrast-color);
+  background-color: var(--accent-color);
+  font-size: 22px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  transition: background-color 0.3s;
+}
+
+.header .header-toggle:hover {
+  color: var(--contrast-color);
+  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
+}
+
+@media (max-width: 1199px) {
+  /* 1. Sidebar hidden by default */
+  .header {
+    left: -100%;
+    transition: left 0.3s ease-in-out;
+  }
+
+  /* 2. Slide in when open */
+  .header.header-show {
+    left: 0;
+  }
+
+  /* 3. Always keep toggler on the right */
+  .header .header-toggle {
+    display: flex !important;
+    right: 15px;
+    left: auto;
+  }
+
+  /* ✂️ Removed: no more swapping to `left:15px` on open */
+}
+
+
+
+  
+  .navmenu {
+    padding: 0;
+    z-index: 9997;
+  }
+  
+  .navmenu ul {
+    list-style: none;
+    padding: 0 0 20px 0;
+    margin: 0;
+  }
+  
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 15px 10px;
+    font-family: var(--nav-font);
+    font-size: 16px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    transition: 0.3s;
+    width: 100%;
+  }
+  
+  .navmenu a .navicon,
+  .navmenu a:focus .navicon {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+
+  
+  
+  
+  .navmenu a:hover,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-hover-color);
+  }
+  
+  .navmenu a:hover .navicon,
+  .navmenu .active .navicon,
+  .navmenu .active:focus .navicon {
+    color: var(--accent-color);
+  }
+  
+  
+  
+ 
+  
+  
+  
+  /*--------------------------------------------------------------
+  # Global Footer
+  --------------------------------------------------------------*/
+  .footer {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    font-size: 14px;
+    padding: 40px 0;
+    position: relative;
+    border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  }
+  
+  .footer .copyright p {
+    margin-bottom: 0;
+  }
+  
+  .footer .credits {
+    margin-top: 4px;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  /*--------------------------------------------------------------
+  # Preloader
+  --------------------------------------------------------------*/
+  /* #preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    overflow: hidden;
+    background: var(--background-color);
+    transition: all 0.6s ease-out;
+  }
+  
+  #preloader:before {
+    content: "";
+    position: fixed;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+    border: 6px solid #ffffff;
+    border-color: var(--accent-color) transparent var(--accent-color) transparent;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: animate-preloader 1.5s linear infinite;
+  }
+  
+  @keyframes animate-preloader {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+   */
+  /*--------------------------------------------------------------
+  # Scroll Top Button
+  --------------------------------------------------------------*/
+ 
+  
+  
+  section,
+.section {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 60px 0;
+  overflow: clip;
+}
+
+/*--------------------------------------------------------------
+# Global Section Titles
+--------------------------------------------------------------*/
+.section-title {
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.section-title h2:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  left: 0;
+  bottom: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero:before {
+  content: "";
+  background: color-mix(in srgb, var(--background-color), transparent 70%);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.hero p {
+  margin: 5px 0 0 0;
+  font-size: 26px;
+}
+
+.hero p span {
+  letter-spacing: 1px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.hero .social-links {
+  margin-top: 25px;
+}
+
+.hero .social-links a {
+  font-size: 24px;
+  display: inline-block;
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
+  line-height: 1;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.hero .social-links a:hover {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 20px;
+  }
+}
+.about .content h2 {
+    font-weight: 700;
+    font-size: 24px;
+  }
+  
+  .about .content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .about .content ul li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .about .content ul strong {
+    margin-right: 10px;
+  }
+  
+  .about .content ul .arrow {
+    font-size: 16px;
+    margin-right: 5px;
+    color: var(--accent-color);
+    line-height: 0;
+  }
+  /* For desktop view (default) */
+#p3 {
+  width: 800px;
+  margin: 0 auto;
+  /* Keep content centered */
+}
+
+/* Tablet view */
+@media (max-width: 992px) {
+  #p3 {
+    width: 90%; /* 90% of the screen width on tablets */
+    margin: 0 auto;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 576px) {
+  #p3 {
+    width: 100%; /* Full width on mobile */
+    margin: 0 auto;
+    padding: 0 1rem; /* Optional: add some padding for smaller screens */
+  }
+}
+
+  
+  .resume .resume-title {
+    color: var(--heading-color);
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .resume .resume-item {
+    padding: 0 0 20px 20px;
+    margin-top: -2px;
+    border-left: 2px solid var(--accent-color);
+    position: relative;
+  }
+  
+  .resume .resume-item h4 {
+    line-height: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--default-color), transparent 20%);
+    margin-bottom: 10px;
+  }
+  
+  .resume .resume-item h5 {
+    font-size: 16px;
+    padding: 5px 15px;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .resume .resume-item ul {
+    padding-left: 20px;
+  }
+  
+  .resume .resume-item ul li {
+    padding-bottom: 10px;
+  }
+  
+  .resume .resume-item:last-child {
+    padding-bottom: 0;
+  }
+  
+  .resume .resume-item::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    left: -9px;
+    top: 0;
+    background: var(--background-color);
+    border: 2px solid var(--accent-color);
+  }
+  /* From Uiverse.io by Deri-Kurniawan */ 
+  .button {     
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #fff;
+    border: 2px solid #00bfff;
+    border-radius: 50px;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+    left: 0; /* Reset the fixed left position */
+    margin: 0 auto; /* Center the button */
+    display: block; /* Ensure the button is a block element */
+}
+
+/* Button hover effect */
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button active effect */
+.button:active {
+    transform: scale(0.9);
+}
+
+/* Button animation background */
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #007bff, #00bfff);
+    transition: all 0.4s ease-in-out;
+    z-index: -1;
+    border-radius: 50px;
+}
+
+/* Button hover background animation */
+.button:hover::before {
+    left: 0;
+}
+
+/* Link inside button */
+.a-resume {
+    color: #000;
+}
+
+.a-resume:hover {
+    color: white; /* inherit text color from .button */
+    text-decoration: none; 
+}
+
+/* Responsive for tablets */
+@media (max-width: 992px) {
+    .button {
+        width: 80%; /* Make button 80% of the screen width on tablet */
+        font-size: 14px; /* Slightly smaller font size */
+        padding: 10px 24px;
+    }
+}
+
+/* Responsive for mobile */
+@media (max-width: 576px) {
+    .button {
+        width: 90%; /* Button takes up most of the screen width on mobile */
+        font-size: 14px; /* Adjust font size */
+        padding: 10px 20px; /* Reduce padding */
+    }
+}
+
+ 
+ /* portfolio------------------------- */
+ .portfolio .portfolio-filters {
+    padding: 0;
+    margin: 0 auto 20px auto;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .portfolio .portfolio-filters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 10px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .portfolio .portfolio-filters li:hover,
+  .portfolio .portfolio-filters li.filter-active {
+    color: var(--accent-color);
+  }
+  
+  .portfolio .portfolio-filters li:first-child {
+    margin-left: 0;
+  }
+  
+  .portfolio .portfolio-filters li:last-child {
+    margin-right: 0;
+  }
+  
+  @media (max-width: 575px) {
+    .portfolio .portfolio-filters li {
+      font-size: 14px;
+      margin: 0 5px;
+    }
+  }
+  
+  .portfolio .portfolio-content {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .portfolio .portfolio-content img {
+    transition: 0.3s;
+  }
+  
+  .portfolio .portfolio-content .portfolio-info {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+  }
+  
+  .portfolio .portfolio-content .portfolio-info h4 {
+    font-size: 14px;
+    padding: 5px 10px;
+    font-weight: 400;
+    color: #ffffff;
+    display: inline-block;
+    background-color: var(--accent-color);
+  }
+  
+  .portfolio .portfolio-content .portfolio-info p {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .portfolio .portfolio-content .portfolio-info .preview-link,
+  .portfolio .portfolio-content .portfolio-info .details-link {
+    position: absolute;
+    left: calc(50% - 40px);
+    font-size: 26px;
+    top: calc(50% - 14px);
+    color: #fff;
+    transition: 0.3s;
+    line-height: 1.2;
+  }
+  
+  .portfolio .portfolio-content .portfolio-info .preview-link:hover,
+  .portfolio .portfolio-content .portfolio-info .details-link:hover {
+    color: var(--accent-color);
+  }
+  
+  .portfolio .portfolio-content .portfolio-info .details-link {
+    left: 50%;
+    font-size: 34px;
+    line-height: 0;
+  }
+  
+  .portfolio .portfolio-content:hover .portfolio-info {
+    opacity: 1;
+  }
+  
+  .portfolio .portfolio-content:hover img {
+    transform: scale(1.1);
+  }
+  /* skills */
+  
+ 
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  
+  .skill-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .skill-item:hover .skill-icon {
+    transform: scale(1.2);
+    color: #007bff;
+  }
+  /* Tooltip Styles - Just Add */
+.skill-item {
+  position: relative;
+}
+
+.skill-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: #222;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 0.75rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.skill-item::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #222;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 9;
+}
+
+.skill-item:hover::after,
+.skill-item:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+  /* Ensure layout stays 3x3 on all screen sizes */
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: repeat(3, 1fr); /* still 3 items */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .skills-grid {
+      grid-template-columns: repeat(3, 1fr); /* still 3 items */
+    }
+  }
+  
+  .contact .info-wrap {
+    background-color: var(--surface-color);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  
+  @media (max-width: 575px) {
+    .contact .info-wrap {
+      padding: 20px;
+    }
+  }
+  
+  .contact .info-item {
+    margin-bottom: 40px;
+  }
+  
+  .contact .info-item i {
+    font-size: 20px;
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 92%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    margin-right: 15px;
+  }
+  
+  .contact .info-item h3 {
+    padding: 0;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .contact .info-item p {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  
+  .contact .info-item:hover i {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+  }
+  
+  .contact .php-email-form {
+    background-color: var(--surface-color);
+    height: 100%;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 575px) {
+    .contact .php-email-form {
+      padding: 20px;
+    }
+  }
+  
+  .contact .php-email-form input[type=text],
+  .contact .php-email-form input[type=email],
+  .contact .php-email-form textarea {
+    font-size: 14px;
+    padding: 10px 15px;
+    box-shadow: none;
+    border-radius: 0;
+    color: var(--default-color);
+    background-color: var(--surface-color);
+    border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  }
+  
+  .contact .php-email-form input[type=text]:focus,
+  .contact .php-email-form input[type=email]:focus,
+  .contact .php-email-form textarea:focus {
+    border-color: var(--accent-color);
+  }
+  
+  .contact .php-email-form input[type=text]::placeholder,
+  .contact .php-email-form input[type=email]::placeholder,
+  .contact .php-email-form textarea::placeholder {
+    color: color-mix(in srgb, var(--default-color), transparent 70%);
+  }
+  
+  .contact .php-email-form button[type=submit] {
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    border: 0;
+    padding: 10px 30px;
+    transition: 0.4s;
+    border-radius: 50px;
+  }
+  
+  .contact .php-email-form button[type=submit]:hover {
+    background: color-mix(in srgb, var(--accent-color), transparent 25%);
+  }
+
+  
+  section {
+    /* opacity: 0; Initially hidden */
+    transition: opacity 1s ease-in; 
+    transform: translateY(30px);
+    /* transition: all 0.6s ease;   */
+    opacity: 0;
+  }
+  
+  section.fade-in {
+    opacity: 1; /* Fully visible when the fade-in class is added */
+    transform: translateY(0);
+    animation: fadeZoomIn 0.7s ease-out forwards;
+
+
+  }
+ 
+    @keyframes fadeZoomIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    /* Styling for the button */
+.submit-btn {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Spinner inside button */
+.loading-spinner.inside-btn {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0;
+}
+
+/* Spin animation keyframe */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success message */
+.sent-message {
+  color: green;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Error message */
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Highlight the "Thank you" text */
+.highlight-text {
+  font-weight: bold;
+}
+
+    Section {
+      opacity: 0;
+    }
+    
+    .loading-spinner.inside-btn {
+      width: 18px;
+      height: 18px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-top-color: #fff; /* white color */
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+   
+    /* footer */
+    .footer-fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInFooter 1s ease-in-out forwards;
+      animation-delay: 0.5s;
+    }
+    
+    @keyframes fadeInFooter {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .highlight {
+    color: var(--accent-color);
+
+    /* Highlight color */
+      
+    }
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      overflow: hidden;
+      background: var(--background-color);
+      transition: all 0.6s ease-out;
+    }
+    
+    #preloader:before {
+      content: "";
+      position: fixed;
+      top: calc(50% - 30px);
+      left: calc(50% - 30px);
+      border: 6px solid #ffffff;
+      border-color: var(--accent-color) transparent var(--accent-color) transparent;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: animate-preloader 1.5s linear infinite;
+    }
+    
+    @keyframes animate-preloader {
+      0% {
+        transform: rotate(0deg);
+      }
+    
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+
