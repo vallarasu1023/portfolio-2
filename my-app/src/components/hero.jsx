@@ -15,7 +15,7 @@ import axios from 'axios'; // Import axios for making HTTP requests
 import profilepic from "../assets/profiled1.jpg"
 import smallprofile from "../assets/profile 3.jpg"
 import background from "../assets/photo.jpeg"
-import resume  from "../assets/Vallarasu_Resume.pdf"
+import resume  from "../assets/Vallarasu_Resume..pdf"
 import p4 from "../assets/p4.png"
 import p1 from "../assets/p1.png"
 import afd from "../assets/afd.png"
