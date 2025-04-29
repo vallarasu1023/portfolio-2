@@ -22,7 +22,7 @@ import afd from "../assets/afd.png"
 import p2 from "../assets/p2.png"
 import p6 from "../assets/p6.png"
 import pg from "../assets/pg.png"
-// import { BsList } from 'react-icons/bs';
+
 
 
 
@@ -99,8 +99,8 @@ useEffect(() => {
 }, []);
 
 // nav sections active state on scroll
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".navmenu ul li a");
+// const sections = document.querySelectorAll("section[id]");
+// const navLinks = document.querySelectorAll(".navmenu ul li a");
 
 useEffect(() => {
   AOS.init({
@@ -543,15 +543,16 @@ Download Cv
                   <p>Vallarasusaravanakumar@gmail.com</p>
                 </div>
               </div>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.409440045068!2d78.09261107479215!3d9.8998159902005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00cf90955b4e69%3A0xc891fac14feddb87!2s54D%2F51%2C%20T%20V%20S%20Nagar%2C%20Madurai%2C%20Tamil%20Nadu%20625003!5e0!3m2!1sen!2sin!4v1745319002057!5m2!1sen!2sin" 
-                frameBorder="0"
-      style={{ border: 0, width: '100%', height: '270px' }}
-      allowFullScreen
-      loading="lazy"
-   referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-  
-            </div>
+              <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.409440045068!2d78.09261107479215!3d9.8998159902005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00cf90955b4e69%3A0xc891fac14feddb87!2s54D%2F51%2C%20T%20V%20S%20Nagar%2C%20Madurai%2C%20Tamil%20Nadu%20625003!5e0!3m2!1sen!2sin!4v1745319002057!5m2!1sen!2sin" 
+  frameBorder="0"
+  style={{ border: 0, width: '100%', height: '270px' }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  title="Google Map Location of Madurai"
+></iframe>
+      </div>
           </div>
 
           <div className="col-lg-7">
